@@ -1,0 +1,33 @@
+class Samochod:
+    def __init__(self, marka, model, rok_produkcji, przebieg):
+        self.marka = marka
+        self.model = model
+        self.rok_produkcji = rok_produkcji
+        self.przebieg = przebieg
+
+    def __str__(self):
+        return f"{self.marka} {self.model}, {self.rok_produkcji} – {self.przebieg} km"
+
+    def __lt__(self, other):
+        return self.przebieg < other.przebieg
+
+
+s1 = Samochod("Toyota", "Corolla", 2015, 120000)
+s2 = Samochod("BMW", "X3", 2018, 85000)
+s3 = Samochod("Fiat", "Panda", 2012, 150000)
+
+print("Reprezentacje obiektów:")
+print(s1)
+print(s2)
+print(s3)
+
+print("\nPorównania przebiegów:")
+print("Czy BMW ma mniejszy przebieg niż Toyota?", s2 < s1)
+print("Czy Fiat ma mniejszy przebieg niż BMW?", s3 < s2)
+
+auta = [s1, s2, s3]
+auta_posortowane = sorted(auta)
+
+print("\nSamochody posortowane według przebiegu:")
+for auto in auta_posortowane:
+    print(auto)
